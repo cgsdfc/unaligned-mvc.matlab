@@ -23,37 +23,40 @@
 import logging
 from pathlib import Path as P
 
-from unaligned_mvc.data import PartialMultiviewDataset
+from unaligned_mvc.data.unaligned import get_unaligned_permutations
 from unaligned_mvc.data.dataset import MultiviewDataset
 from unaligned_mvc.utils.metrics import MaxMetrics
 from unaligned_mvc.utils.torch_utils import convert_tensor, nn, torch
+from .config import args
 
 
 class Preprocess(nn.Module):
-    def __init__(self, args) -> None:
-        super(Preprocess, self).__init__()
-        self.args = args
-
     def forward(self):
-        args = self.args
         data = MultiviewDataset(
             datapath=P(args.datapath),
             view_ids=args.views,
-            normalize="minmax",
+            normalize="minmax",  # Note the alignment
         )
         logging.info("Loaded dataset {}".format(data.name))
-        A = data.X_paired_list
-        U = data.X_single_list
-        W = data.idx_all_list
+        
+        permutation_list = get_unaligned_permutations(
+            n=data.sampleNum,
+            V=data.viewNum,
+            aligned_ratio=args.aligned_ratio,
+        )['permutation_list']
+
+        X = []
+        for v in range(data.viewNum):
+            P_gt = permutation_list[v]
+            x = data.X[v].t()
+            x = x[:, P_gt]
+            X.append(x)
+
         res = dict(
             data=data,
             mm=MaxMetrics(ACC=True, NMI=True, PUR=True, F1=True),
-            A=convert_tensor(A, torch.float, args.device),
-            U=convert_tensor(U, torch.float, args.device),
-            W=convert_tensor(W, torch.long, args.device),
+            X=convert_tensor(X, torch.float, args.device),
             V=data.viewNum,
             n=data.sampleNum,
-            n_a=data.pairedNum,
-            n_u=[U[v].shape[0] for v in range(data.viewNum)],
         )
         return res
