@@ -23,9 +23,10 @@
 import logging
 from pathlib import Path as P
 
-from abs2imc.data import PartialMultiviewDataset
-from abs2imc.utils.metrics import MaxMetrics
-from abs2imc.utils.torch_utils import convert_tensor, nn, torch
+from unaligned_mvc.data import PartialMultiviewDataset
+from unaligned_mvc.data.dataset import MultiviewDataset
+from unaligned_mvc.utils.metrics import MaxMetrics
+from unaligned_mvc.utils.torch_utils import convert_tensor, nn, torch
 
 
 class Preprocess(nn.Module):
@@ -35,10 +36,9 @@ class Preprocess(nn.Module):
 
     def forward(self):
         args = self.args
-        data = PartialMultiviewDataset(
+        data = MultiviewDataset(
             datapath=P(args.datapath),
             view_ids=args.views,
-            paired_rate=args.per,
             normalize="minmax",
         )
         logging.info("Loaded dataset {}".format(data.name))

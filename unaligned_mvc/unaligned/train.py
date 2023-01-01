@@ -29,11 +29,11 @@ from .loss import AnchorBasedSparseSubpaceLoss
 from .model import AnchorBasedSparseSubspaceModel
 from .postprocess import PostProcess
 from .preprocess import Preprocess
-from abs2imc.utils.metrics import Evaluate_Graph
-from abs2imc.data.dataset import PartialMultiviewDataset
+from unaligned_mvc.utils.metrics import Evaluate_Graph
+from unaligned_mvc.data.dataset import PartialMultiviewDataset
 
 
-def train_abs2imc():
+def train_unaligned_mvc():
     preprocess = Preprocess(args)
     inputs = preprocess()
     data: PartialMultiviewDataset = inputs["data"]

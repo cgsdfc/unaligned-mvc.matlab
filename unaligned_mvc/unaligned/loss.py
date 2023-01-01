@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from abs2imc.utils.torch_utils import F, nn
+from unaligned_mvc.utils.torch_utils import F, nn
 
 
 class AnchorBasedSparseSubpaceLoss(nn.Module):

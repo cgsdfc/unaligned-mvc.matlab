@@ -23,9 +23,9 @@
 import json
 from pathlib import Path as P
 
-from abs2imc.utils.metrics import Evaluate_Graph, MaxMetrics
-from abs2imc.utils.torch_utils import convert_numpy, nn
-from abs2imc.vis.plot_utils import pairwise_distances, plt, sns
+from unaligned_mvc.utils.metrics import Evaluate_Graph, MaxMetrics
+from unaligned_mvc.utils.torch_utils import convert_numpy, nn
+from unaligned_mvc.vis.plot_utils import pairwise_distances, plt, sns
 
 
 class PostProcess(nn.Module):

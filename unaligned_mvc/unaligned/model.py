@@ -22,7 +22,7 @@
 
 from typing import List
 
-from abs2imc.utils.torch_utils import F, Tensor, nn, torch, EPS_max
+from unaligned_mvc.utils.torch_utils import F, Tensor, nn, torch, EPS_max
 
 
 def fuse_incomplete_view_z(

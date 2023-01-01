@@ -33,7 +33,7 @@ import torch
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--seed", type=int, default=123)
-parser.add_argument("--per", type=float, default=0.3, help="paired example rate")
+parser.add_argument("--aligned_ratio", type=float, default=0.3, help="aligned example rate")
 parser.add_argument("--lamda", type=float, default=0.1, help="lambda")
 parser.add_argument("--lr", type=float, default=0.1)
 parser.add_argument("--datapath", type=str, default="./dataset/handwrittenRnSp.mat")
