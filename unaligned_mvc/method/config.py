@@ -29,12 +29,12 @@ import random
 from pathlib import Path as P
 
 import numpy as np
-import torch
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--seed", type=int, default=123)
 parser.add_argument("--aligned_ratio", type=float, default=0.3, help="aligned example rate")
 parser.add_argument("--lamda", type=float, default=0.1, help="lambda")
+parser.add_argument("--u", type=int, default=0, help='reference view')
 parser.add_argument("--lr", type=float, default=0.1)
 parser.add_argument("--datapath", type=str, default="./dataset/handwrittenRnSp.mat")
 parser.add_argument("--views", type=str, default=None, help="view ids")
@@ -56,11 +56,6 @@ args.logfile = args.savedir.joinpath("train.log")
 seed = args.seed
 np.random.seed(seed)
 random.seed(seed + 1)
-torch.manual_seed(seed + 2)
-torch.cuda.manual_seed(seed + 3)
-torch.backends.cudnn.deterministic = True
-
-args.device = "cpu" if not torch.cuda.is_available() else 0
 
 logging.basicConfig(
     handlers=[
