@@ -19,6 +19,18 @@ To address the unaligned multi-view clustering problem, an effective multi-view 
 2. The dataset resides in the `dataset/` folder.
 3. The command to run the demo is `src/run.m`.
 
+
+## Acknowledgment
+
+This work was inspired by the following works:
+
+- Huang, Zhenyu, Peng Hu, Joey Tianyi Zhou, Jiancheng Lv and Xi Peng. Partially View-aligned Clustering. Neurips 2020.
+- Mouxing Yang, Yunfan Li, Zhenyu Huang, Zitao Liu, Peng Hu, Xi Peng. Partially View-Aligned Representation Learning With Noise-Robust Contrastive Loss. CVPR 2021.
+
+We used some of the code from the following work:
+
+- G. A. Khan, J. Hu, T. Li, B. Diallo and Q. Huang, Weighted Multi-View Data Clustering via Joint Non-Negative Matrix Factorization. ISKE 2019.
+
 ## Citation
 
 If you find our work useful in your research, please consider citing us as follows:

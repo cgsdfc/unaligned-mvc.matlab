@@ -20,6 +20,16 @@
 3. 运行`src/run.m`即可。
 
 
+## 致谢
+
+本工作受到了下列工作的启发：
+
+- Huang, Zhenyu, Peng Hu, Joey Tianyi Zhou, Jiancheng Lv and Xi Peng. Partially View-aligned Clustering. Neurips 2020.
+- Mouxing Yang, Yunfan Li, Zhenyu Huang, Zitao Liu, Peng Hu, Xi Peng. Partially View-Aligned Representation Learning With Noise-Robust Contrastive Loss. CVPR 2021.
+
+本工作用到了下列工作的代码：
+
+- G. A. Khan, J. Hu, T. Li, B. Diallo and Q. Huang, Weighted Multi-View Data Clustering via Joint Non-Negative Matrix Factorization. ISKE 2019.
 
 ## 引用
 
