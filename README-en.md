@@ -2,7 +2,7 @@
 
 [中文版](README-zh.md)
 
-<img src="docs/unaligned-mvc-en.png" style="zoom:60%;" />
+<img src="docs/method-gray-en.png" style="zoom:60%;" />
 
 ## Introduction
 

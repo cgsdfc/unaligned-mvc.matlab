@@ -1,6 +1,0 @@
-torch
-seaborn
-numpy
-munkres
-scikit-learn
-lapjv
